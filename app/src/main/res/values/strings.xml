@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Voice Assistant</string>
+    <string name="send_button">Отправить</string>
+    <string name="editTextHint">Введите ваш вопрос</string>
+
+
+
+
+</resources>
