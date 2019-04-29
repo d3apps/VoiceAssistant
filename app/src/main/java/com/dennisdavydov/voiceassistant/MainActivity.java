@@ -51,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        String intro = "Привет, Я - голосовой помощник Вика, Я могу отвечать на простые вопросы, " +
+                "узнать погоду в нужном городе, время или рассказать афоризм, что Вас интересует?";
+        messageController.messageList.add(new Message(intro, false));
+        textToSpeech.speak(intro,TextToSpeech.QUEUE_FLUSH,null,null);
+        messageController.notifyDataSetChanged();
+        chatWindow.scrollToPosition(messageController.messageList.size()-1);
+
+
     }
     protected void onClickListener(){
         String message = userMessage.getText().toString();
@@ -62,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void accept(String answer) {
                 messageController.messageList.add(new Message(answer, false));
-                textToSpeech.speak(answer,TextToSpeech.QUEUE_FLUSH,null,null);
                 messageController.notifyDataSetChanged();
                 chatWindow.scrollToPosition(messageController.messageList.size()-1);
             }
