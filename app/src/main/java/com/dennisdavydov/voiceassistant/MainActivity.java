@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void accept(String answer) {
                 messageController.messageList.add(new Message(answer, false));
                 messageController.notifyDataSetChanged();
+                textToSpeech.speak(answer,TextToSpeech.QUEUE_FLUSH,null,null);
                 chatWindow.scrollToPosition(messageController.messageList.size()-1);
             }
         });
